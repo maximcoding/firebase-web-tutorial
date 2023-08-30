@@ -23,7 +23,6 @@ const firebaseConfig = {
 
 ```
 // Import the functions you need from the SDKs you need
-
 import {initializeApp} from "firebase/app";
 import {getAnalytics} from "firebase/analytics";
 import {
@@ -41,7 +40,6 @@ import {
   createUserWithEmailAndPassword,
   onAuthStateChanged
 } from 'firebase/auth';
-
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -62,10 +60,8 @@ const analytics = getAnalytics(app);
 // Init services
 const db = getFirestore();
 const auth = getAuth();
-
 // collection ref
 const colRef = collection(db, 'users');
-
 // queries
 
 // collection data
@@ -84,8 +80,7 @@ const unsubCol = onSnapshot(colRef, (snapshot) => {
 });
 
 // real time collection data on query where age == 444 only!
-// orderBy - should have index !
-// https://console.firebase.google.com/u/0/project/fir-9-app-c602d/firestore/indexes
+// orderBy - should have index ! https://console.firebase.google.com/u/0/project/fir-9-app-c602d/firestore/indexes
 const q = query(colRef, where("age", "==", "444"), orderBy('createdAt'));
 const unsubCol2 = onSnapshot(q, (snapshot) => {
   let users = [];
@@ -93,40 +88,24 @@ const unsubCol2 = onSnapshot(q, (snapshot) => {
   console.log('onSnapshot (real time) query where ', users);
 });
 
-
-// adding docs
-const addUserForm = document.querySelector('.add');
-addUserForm.addEventListener('submit', (e) => {
-  e.preventDefault()
-  addDoc(colRef, {
-    email: addUserForm.email.value,
-    age: addUserForm.age.value,
-    createdAt: serverTimestamp()
-  }).then(() =>
-    addUserForm.reset())
-})
+// adding document
+addDoc(colRef, {
+  email: 'example@gmail.com',
+  age: 23,
+  createdAt: serverTimestamp()
+}).then(() => {});
 
 // deleting docs
-const deleteUserForm = document.querySelector('.delete');
-deleteUserForm.addEventListener('submit', (e) => {
-  e.preventDefault()
-
-  const docRef = doc(db, 'users', deleteUserForm.id.value)
-  deleteDoc(docRef)
-    .then(() =>
-      deleteUserForm.reset())
-})
+const docRef = doc(db, 'users', deleteUserForm.id.value)
+deleteDoc(docRef).then(() => {})
 
 // update docs
 const updateUserForm = document.querySelector('.update');
-updateUserForm.addEventListener('submit', (e) => {
-  e.preventDefault()
-  const docRef = doc(db, 'users', updateUserForm.id.value)
-  updateDoc(docRef, {
-    email: updateUserForm.email.value,
-  }).then(() => updateUserForm.reset())
-})
-
+const docRef = doc(db, 'users', updateUserForm.id.value)
+updateDoc(docRef, {email: 'example@gmail.com'})
+  .then(() => {
+  // reset
+});
 
 // get single doc ( user id = 3Oa8ufFb3To2qrBF5wlB )
 const docRef = doc(db, 'users', '3Oa8ufFb3To2qrBF5wlB')
@@ -135,29 +114,13 @@ const docRef = doc(db, 'users', '3Oa8ufFb3To2qrBF5wlB')
 // ret single doc ( user id 3Oa8ufFb3To2qrBF5wlB ) - in real time
 // onSnapshot(docRef, (doc => console.log(doc)));
 
-const signupForm = document.querySelector('.signup');
-signupForm.addEventListener('submit', (e) => {
-  e.preventDefault()
-
-  const email = signupForm.mail.value
-  const password = signupForm.pass.value
-
-  createUserWithEmailAndPassword(auth, email, password)
-    .then(cred => {
-      console.log('user created:', cred.user);
-      signupForm.reset();
-    })
-    .catch(err => console.log(err))
-});
+createUserWithEmailAndPassword(auth, 'example@gmail.com', 'pass123')
+  .then(cred => console.log('user created:', cred.user))
+  .catch(err => console.log(err))
 
 // subscribing to auth changes
-const unsubAuth = onAuthStateChanged(auth, user => {
-  console.log('user status changed:', user);
-});
-
-
+const unsubAuth = onAuthStateChanged(auth, user => console.log('user status changed:', user));
 const unsubButton = document.querySelector('.unsub');
-
 unsubButton.addEventListener('click', () => {
   console.log('unsubscribing');
   unsubCol();
