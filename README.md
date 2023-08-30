@@ -103,8 +103,9 @@ const unsubCol = onSnapshot(colRef, (snapshot) => {
 });
 ```
 
-##### // Real-time collection data on query where age == 444 only!
-- orderBy - should have index ! https://console.firebase.google.com/u/0/project/fir-9-app-c602d/firestore/indexes
+##### // Query Example
+- !!! orderBy - should have index !!!
+  https://console.firebase.google.com/u/0/project/fir-9-app-c602d/firestore/indexes
 
 ```
 const q = query(colRef, where("age", "==", "444"), orderBy('createdAt'));
