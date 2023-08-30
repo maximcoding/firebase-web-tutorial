@@ -65,13 +65,13 @@ const firebaseConfig = {
 
 
 
-##### // Init Firebase app
+##### //Init Firebase app
 ```
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 ```
 
-##### // Init services
+##### // Init Firebase services
 
 ```
 const db = getFirestore();
@@ -80,7 +80,7 @@ const auth = getAuth();
 const colRef = collection(db, 'users');
 ```
 
-##### // collection data
+##### // Firebase collection - get data
 
 ```
 getDocs(colRef).then((snapshot) => {
@@ -90,7 +90,7 @@ getDocs(colRef).then((snapshot) => {
 }).catch(err => console.log(err.message));
 ```
 
-##### // real-time collection data
+##### // Real-time collection data
 
 ```
 const unsubCol = onSnapshot(colRef, (snapshot) => {
@@ -100,7 +100,7 @@ const unsubCol = onSnapshot(colRef, (snapshot) => {
 });
 ```
 
-##### // real time collection data on query where age == 444 only!
+##### // Real-time collection data on query where age == 444 only!
 - orderBy - should have index ! https://console.firebase.google.com/u/0/project/fir-9-app-c602d/firestore/indexes
 
 ```
@@ -112,7 +112,7 @@ const unsubCol2 = onSnapshot(q, (snapshot) => {
 });
 ```
 
-##### // adding document
+##### // Add Firebase document
 
 ```
 addDoc(colRef, {
@@ -122,14 +122,14 @@ addDoc(colRef, {
 }).then(() => {});
 ```
 
-##### // deleting docs
+##### // Deleting Firebase document
 
 ```
 const docRef = doc(db, 'users', deleteUserForm.id.value)
 deleteDoc(docRef).then(() => {})
 ```
 
-##### // update docs
+##### // Update Firebase document
 
 ```
 const updateUserForm = document.querySelector('.update');
@@ -140,14 +140,14 @@ updateDoc(docRef, {email: 'example@gmail.com'})
 });
 ```
 
-##### // get single doc ( user id = 3Oa8ufFb3To2qrBF5wlB )
+##### // Get single doc ( user id = 3Oa8ufFb3To2qrBF5wlB )
   
 ```
 const docRef = doc(db, 'users', '3Oa8ufFb3To2qrBF5wlB')
 getDocs(docRef).then(doc => console.log(doc))
 ```
 
-##### // get single doc ( user id 3Oa8ufFb3To2qrBF5wlB ) - in real time
+##### // Get single doc ( user id 3Oa8ufFb3To2qrBF5wlB ) - in real time
 
 ```
 onSnapshot(docRef, (doc => console.log(doc)));
