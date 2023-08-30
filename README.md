@@ -124,7 +124,7 @@ updateDoc(docRef, {email: 'example@gmail.com'})
 });
 ```
 
-* get single doc ( user id = 3Oa8ufFb3To2qrBF5wlB )
+// get single doc ( user id = 3Oa8ufFb3To2qrBF5wlB )
 ```
 const docRef = doc(db, 'users', '3Oa8ufFb3To2qrBF5wlB')
 getDocs(docRef).then(doc => console.log(doc))
@@ -132,18 +132,21 @@ getDocs(docRef).then(doc => console.log(doc))
  ret single doc ( user id 3Oa8ufFb3To2qrBF5wlB ) - in real time
 onSnapshot(docRef, (doc => console.log(doc)));
 
+```
 createUserWithEmailAndPassword(auth, 'example@gmail.com', 'pass123')
   .then(cred => console.log('user created:', cred.user))
   .catch(err => console.log(err))
 ```
 
 * subscribe to auth changes
+
 ```
 const unsubAuth = onAuthStateChanged(auth, user => console.log('user status changed:', user));
 const unsubButton = document.querySelector('.unsub');
 ```
 
 * unsubscribe from changed
+
 ```
 unsubButton.addEventListener('click', () => {
   console.log('unsubscribing');
