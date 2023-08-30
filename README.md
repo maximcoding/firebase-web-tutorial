@@ -28,8 +28,11 @@ const firebaseConfig = {
 ---- 
 #### src/indexjs
 
+
+- Add SDKs for Firebase products that you want to use
+- Import the functions you need from the SDKs you need: (Link)[https://firebase.google.com/docs/web/setup#available-libraries]
+
 ```
-// Import the functions you need from the SDKs you need
 import {initializeApp} from "firebase/app";
 import {getAnalytics} from "firebase/analytics";
 import {
@@ -47,9 +50,10 @@ import {
   createUserWithEmailAndPassword,
   onAuthStateChanged
 } from 'firebase/auth';
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
+```
 
+firebase config
+```
 const firebaseConfig = {
   apiKey: "AIzaSyDWaL05RsCwiOaTY7XJ22Yfky14l1zEAG4",
   authDomain: "fir-9-app-c602d.firebaseapp.com",
@@ -59,18 +63,27 @@ const firebaseConfig = {
   appId: "1:967892818152:web:b4464527b8b7072204115d",
   measurementId: "G-2WS9D6EHMS"
 };
+```
 
+```
 // Init Firebase app
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
+```
 
+```
 // Init services
 const db = getFirestore();
 const auth = getAuth();
+```
+
+```
 // collection ref
 const colRef = collection(db, 'users');
-// queries
+```
 
+```
+// queries
 // collection data
 getDocs(colRef).then((snapshot) => {
   let users = [];
@@ -78,14 +91,18 @@ getDocs(colRef).then((snapshot) => {
   console.log('getDocs (on init)', users);
 
 }).catch(err => console.log(err.message));
+```
 
+```
 // real time collection data
 const unsubCol = onSnapshot(colRef, (snapshot) => {
   let users = [];
   snapshot.docs.forEach(doc => users.push({...doc.data(), id: doc.id}));
   console.log('onSnapshot (real time)', users);
 });
+```
 
+```
 // real time collection data on query where age == 444 only!
 // orderBy - should have index ! https://console.firebase.google.com/u/0/project/fir-9-app-c602d/firestore/indexes
 const q = query(colRef, where("age", "==", "444"), orderBy('createdAt'));
@@ -94,18 +111,25 @@ const unsubCol2 = onSnapshot(q, (snapshot) => {
   snapshot.docs.forEach(doc => users.push({...doc.data(), id: doc.id}));
   console.log('onSnapshot (real time) query where ', users);
 });
+```
 
+
+```
 // adding document
 addDoc(colRef, {
   email: 'example@gmail.com',
   age: 23,
   createdAt: serverTimestamp()
 }).then(() => {});
+```
 
+```
 // deleting docs
 const docRef = doc(db, 'users', deleteUserForm.id.value)
 deleteDoc(docRef).then(() => {})
+```
 
+```
 // update docs
 const updateUserForm = document.querySelector('.update');
 const docRef = doc(db, 'users', updateUserForm.id.value)
@@ -113,18 +137,24 @@ updateDoc(docRef, {email: 'example@gmail.com'})
   .then(() => {
   // reset
 });
+```
 
+```
 // get single doc ( user id = 3Oa8ufFb3To2qrBF5wlB )
 const docRef = doc(db, 'users', '3Oa8ufFb3To2qrBF5wlB')
 // getDocs(docRef).then(doc => console.log(doc))
 //
 // ret single doc ( user id 3Oa8ufFb3To2qrBF5wlB ) - in real time
 // onSnapshot(docRef, (doc => console.log(doc)));
+```
 
+```
 createUserWithEmailAndPassword(auth, 'example@gmail.com', 'pass123')
   .then(cred => console.log('user created:', cred.user))
   .catch(err => console.log(err))
+```
 
+```
 // subscribing to auth changes
 const unsubAuth = onAuthStateChanged(auth, user => console.log('user status changed:', user));
 const unsubButton = document.querySelector('.unsub');
@@ -135,4 +165,3 @@ unsubButton.addEventListener('click', () => {
   unsubAuth();
 });
 ```
-
