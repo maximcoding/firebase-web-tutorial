@@ -4,11 +4,11 @@
 - Firestore CRUD Collection + real-time updates
 - Firebase Auth signup
 
-P.S. The Firebase Realtime Database is a cloud-hosted NoSQL .
+##### // P.S. The Firebase Realtime Database is a cloud-hosted NoSQL .
 
 ----
 
-#### 
+##### // config file
 ```
 const firebaseConfig = {
   apiKey: "AIzaSyDWaL05RsCwiOaTY7XJ22Yfky14l1zEAG4",
@@ -22,11 +22,11 @@ const firebaseConfig = {
 ```
 
 ---
-#### Link to console
+##### // Link to console
 ``` https://console.firebase.google.com/u/0/project/fir-9-app-c602d/firestore/data/~2Fusers~2F1R9TQygMUWvS8MGuDJx1 ```
 
 ---- 
-#### src/indexjs
+##### // src/indexjs
 
 ```
 // Import the functions you need from the SDKs you need
@@ -65,13 +65,13 @@ const firebaseConfig = {
 
 
 
-##### Init Firebase app
+##### // Init Firebase app
 ```
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 ```
 
-##### Init services
+##### // Init services
 
 ```
 const db = getFirestore();
@@ -80,7 +80,7 @@ const auth = getAuth();
 const colRef = collection(db, 'users');
 ```
 
-##### collection data
+##### // collection data
 
 ```
 getDocs(colRef).then((snapshot) => {
@@ -90,7 +90,7 @@ getDocs(colRef).then((snapshot) => {
 }).catch(err => console.log(err.message));
 ```
 
-##### real-time collection data
+##### // real-time collection data
 
 ```
 const unsubCol = onSnapshot(colRef, (snapshot) => {
@@ -100,7 +100,7 @@ const unsubCol = onSnapshot(colRef, (snapshot) => {
 });
 ```
 
-##### real time collection data on query where age == 444 only!
+##### // real time collection data on query where age == 444 only!
 - orderBy - should have index ! https://console.firebase.google.com/u/0/project/fir-9-app-c602d/firestore/indexes
 
 ```
@@ -112,7 +112,7 @@ const unsubCol2 = onSnapshot(q, (snapshot) => {
 });
 ```
 
-##### adding document
+##### // adding document
 
 ```
 addDoc(colRef, {
@@ -122,14 +122,14 @@ addDoc(colRef, {
 }).then(() => {});
 ```
 
-##### deleting docs
+##### // deleting docs
 
 ```
 const docRef = doc(db, 'users', deleteUserForm.id.value)
 deleteDoc(docRef).then(() => {})
 ```
 
-##### update docs
+##### // update docs
 
 ```
 const updateUserForm = document.querySelector('.update');
@@ -140,20 +140,20 @@ updateDoc(docRef, {email: 'example@gmail.com'})
 });
 ```
 
-##### get single doc ( user id = 3Oa8ufFb3To2qrBF5wlB )
+##### // get single doc ( user id = 3Oa8ufFb3To2qrBF5wlB )
   
 ```
 const docRef = doc(db, 'users', '3Oa8ufFb3To2qrBF5wlB')
 getDocs(docRef).then(doc => console.log(doc))
 ```
 
-##### get single doc ( user id 3Oa8ufFb3To2qrBF5wlB ) - in real time
+##### // get single doc ( user id 3Oa8ufFb3To2qrBF5wlB ) - in real time
 
 ```
 onSnapshot(docRef, (doc => console.log(doc)));
 ```
 
-##### Firebase Auth ( signup user )
+##### // Firebase Auth ( signup user )
 
 ```
 createUserWithEmailAndPassword(auth, 'example@gmail.com', 'pass123')
