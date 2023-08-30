@@ -1,14 +1,14 @@
 
-### This project provides examples of the next Firebase features:
+##This project provides examples of the next Firebase features:
+ * // The Firebase Realtime Database is a cloud-hosted NoSQL .
   
 - Firestore CRUD Collection + real-time updates
 - Firebase Auth signup
 
-##### // P.S. The Firebase Realtime Database is a cloud-hosted NoSQL .
-
 ----
 
-##### // config file
+##### // config json
+
 ```
 const firebaseConfig = {
   apiKey: "AIzaSyDWaL05RsCwiOaTY7XJ22Yfky14l1zEAG4",
@@ -23,11 +23,11 @@ const firebaseConfig = {
 
 ---
 #####  Firebase Console
-``` // https://console.firebase.google.com/u/0/project/fir-9-app-c602d/firestore/data/~2Fusers~2F1R9TQygMUWvS8MGuDJx1 ```
+//  https://console.firebase.google.com/u/0/project/fir-9-app-c602d/firestore/data/~2Fusers~2F1R9TQygMUWvS8MGuDJx1
 
 ---- 
 
-#### Add SDKs for Firebase products that you want to use
+##### Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 
