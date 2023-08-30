@@ -133,16 +133,20 @@ updateDoc(docRef, {email: 'example@gmail.com'})
 });
 ```
 
-- get single doc ( user id = 3Oa8ufFb3To2qrBF5wlB )
-
+- get single doc ( user id = 3Oa8ufFb3To2qrBF5wlB ) 
 ```
 const docRef = doc(db, 'users', '3Oa8ufFb3To2qrBF5wlB')
 getDocs(docRef).then(doc => console.log(doc))
-// ret single doc ( user id 3Oa8ufFb3To2qrBF5wlB ) - in real time
+```
+
+- get single doc ( user id 3Oa8ufFb3To2qrBF5wlB ) - in real time
+
+```
 onSnapshot(docRef, (doc => console.log(doc)));
 ```
 
 - Firebase Auth ( signup user )
+
 ```
 createUserWithEmailAndPassword(auth, 'example@gmail.com', 'pass123')
   .then(cred => console.log('user created:', cred.user))
