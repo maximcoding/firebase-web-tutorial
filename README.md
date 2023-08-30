@@ -1,5 +1,5 @@
 
-* This project provides examples of the next Firebase features:
+### This project provides examples of the next Firebase features:
   
 - Firestore CRUD Collection + real-time updates
 - Firebase Auth signup
