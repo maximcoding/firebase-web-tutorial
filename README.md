@@ -1,5 +1,10 @@
+Firebase Firestore + Auth example for web app.
 
-### Firebase Firestore CRUD  + Firebase Auth signup
+The Firebase Realtime Database is a cloud-hosted NoSQL 
+
+* This project provides example for next firebase features:
+- Firestore CRUD Collection + real time updates 
+- Firebase Auth signup
 ----
 #### config file
 ```
