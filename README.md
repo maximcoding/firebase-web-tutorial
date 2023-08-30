@@ -153,14 +153,14 @@ createUserWithEmailAndPassword(auth, 'example@gmail.com', 'pass123')
   .catch(err => console.log(err))
 ```
 
-- subscribe to auth changes
+#### // subscribe to auth changes
 
 ```
 const unsubAuth = onAuthStateChanged(auth, user => console.log('user status changed:', user));
 const unsubButton = document.querySelector('.unsub');
 ```
 
-- unsubscribe from changed
+#### // unsubscribe from changed
 
 ```
 unsubButton.addEventListener('click', () => {
