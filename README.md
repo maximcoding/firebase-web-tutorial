@@ -1,12 +1,14 @@
-Firebase Firestore + Auth example for web app.
 
-The Firebase Realtime Database is a cloud-hosted NoSQL 
-
-* This project provides example for next firebase features:
-- Firestore CRUD Collection + real time updates 
+* This project provides examples of the next Firebase features:
+  
+- Firestore CRUD Collection + real-time updates
 - Firebase Auth signup
+
+P.S. The Firebase Realtime Database is a cloud-hosted NoSQL .
+
 ----
-#### config file
+
+#### 
 ```
 const firebaseConfig = {
   apiKey: "AIzaSyDWaL05RsCwiOaTY7XJ22Yfky14l1zEAG4",
