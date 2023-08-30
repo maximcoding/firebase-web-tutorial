@@ -65,7 +65,7 @@ const firebaseConfig = {
 
 
 
-##### //Init Firebase app
+##### // Init Firebase app
 ```
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
@@ -161,14 +161,14 @@ createUserWithEmailAndPassword(auth, 'example@gmail.com', 'pass123')
   .catch(err => console.log(err))
 ```
 
-##### // subscribe to auth changes
+##### // Subscribe to auth changes
 
 ```
 const unsubAuth = onAuthStateChanged(auth, user => console.log('user status changed:', user));
 const unsubButton = document.querySelector('.unsub');
 ```
 
-##### // unsubscribe from changed
+##### // Unsubscribe from changed
 
 ```
 unsubButton.addEventListener('click', () => {
