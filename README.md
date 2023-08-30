@@ -65,6 +65,7 @@ const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 
 * Init services
+
 ```
 const db = getFirestore();
 const auth = getAuth();
@@ -73,6 +74,7 @@ const colRef = collection(db, 'users');
 ```
 
 * collection data
+
 ```
 getDocs(colRef).then((snapshot) => {
   let users = [];
@@ -82,6 +84,7 @@ getDocs(colRef).then((snapshot) => {
 ```
 
 * real-time collection data
+
 ```
 const unsubCol = onSnapshot(colRef, (snapshot) => {
   let users = [];
@@ -90,16 +93,20 @@ const unsubCol = onSnapshot(colRef, (snapshot) => {
 });
 ```
 
-// real time collection data on query where age == 444 only!
-// orderBy - should have index ! https://console.firebase.google.com/u/0/project/fir-9-app-c602d/firestore/indexes
+- real time collection data on query where age == 444 only!
+- orderBy - should have index ! https://console.firebase.google.com/u/0/project/fir-9-app-c602d/firestore/indexes
+
+```
 const q = query(colRef, where("age", "==", "444"), orderBy('createdAt'));
 const unsubCol2 = onSnapshot(q, (snapshot) => {
   let users = [];
   snapshot.docs.forEach(doc => users.push({...doc.data(), id: doc.id}));
   console.log('onSnapshot (real time) query where ', users);
 });
+```
 
-* adding document
+- adding document
+
 ```
 addDoc(colRef, {
   email: 'example@gmail.com',
@@ -108,13 +115,15 @@ addDoc(colRef, {
 }).then(() => {});
 ```
 
-* deleting docs
+- deleting docs
+
 ```
 const docRef = doc(db, 'users', deleteUserForm.id.value)
 deleteDoc(docRef).then(() => {})
 ```
 
-* update docs
+- update docs
+
 ```
 const updateUserForm = document.querySelector('.update');
 const docRef = doc(db, 'users', updateUserForm.id.value)
@@ -124,28 +133,30 @@ updateDoc(docRef, {email: 'example@gmail.com'})
 });
 ```
 
-// get single doc ( user id = 3Oa8ufFb3To2qrBF5wlB )
+- get single doc ( user id = 3Oa8ufFb3To2qrBF5wlB )
+
 ```
 const docRef = doc(db, 'users', '3Oa8ufFb3To2qrBF5wlB')
 getDocs(docRef).then(doc => console.log(doc))
-
- ret single doc ( user id 3Oa8ufFb3To2qrBF5wlB ) - in real time
+// ret single doc ( user id 3Oa8ufFb3To2qrBF5wlB ) - in real time
 onSnapshot(docRef, (doc => console.log(doc)));
+```
 
+- Firebase Auth ( signup user )
 ```
 createUserWithEmailAndPassword(auth, 'example@gmail.com', 'pass123')
   .then(cred => console.log('user created:', cred.user))
   .catch(err => console.log(err))
 ```
 
-* subscribe to auth changes
+- subscribe to auth changes
 
 ```
 const unsubAuth = onAuthStateChanged(auth, user => console.log('user status changed:', user));
 const unsubButton = document.querySelector('.unsub');
 ```
 
-* unsubscribe from changed
+- unsubscribe from changed
 
 ```
 unsubButton.addEventListener('click', () => {
