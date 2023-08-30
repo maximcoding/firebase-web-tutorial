@@ -49,7 +49,9 @@ import {
 } from 'firebase/auth';
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
+```
 
+```
 const firebaseConfig = {
   apiKey: "AIzaSyDWaL05RsCwiOaTY7XJ22Yfky14l1zEAG4",
   authDomain: "fir-9-app-c602d.firebaseapp.com",
@@ -59,10 +61,15 @@ const firebaseConfig = {
   appId: "1:967892818152:web:b4464527b8b7072204115d",
   measurementId: "G-2WS9D6EHMS"
 };
+```
+
+
 
 // Init Firebase app
+```
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
+```
 
 * Init services
 
@@ -133,7 +140,8 @@ updateDoc(docRef, {email: 'example@gmail.com'})
 });
 ```
 
-- get single doc ( user id = 3Oa8ufFb3To2qrBF5wlB ) 
+- get single doc ( user id = 3Oa8ufFb3To2qrBF5wlB )
+  
 ```
 const docRef = doc(db, 'users', '3Oa8ufFb3To2qrBF5wlB')
 getDocs(docRef).then(doc => console.log(doc))
