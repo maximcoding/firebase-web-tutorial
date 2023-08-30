@@ -1,0 +1,54 @@
+<html>
+<head>
+  <title>Firebase 9 tutorial</title>
+</head>
+<body>
+
+<h2>Firebase Firestore</h2>
+<span>Add new document to collection</span>
+<form class="add">
+  <label for="email">Email:</label>
+  <input type="text" name="email" required>
+  <label for="age">Age:</label>
+  <input type="text" name="age" required>
+  <button>add a new user</button>
+</form>
+
+<span>Delete document by id</span>
+<form class="delete">
+  <label for="id">User id:</label>
+  <input type="text" name="id" required>
+  <button>delete a user</button>
+</form>
+
+<span>Update document by id</span>
+<form class="update">
+  <label for="id">User id:</label>
+  <input type="text" name="id" required>
+
+  <label for="email">Email:</label>
+  <input type="text" name="email" required>
+
+  <button>update a user</button>
+</form>
+
+
+<h2>Firebase Auth</h2>
+<form class="signup">
+  <label for="mail">email:</label>
+  <input type="email" name="mail" required>
+
+  <label for="pass">password:</label>
+  <input type="password" name="pass" required>
+  <button>signup</button>
+</form>
+<span>password should be at least 6 characters!</span>
+
+
+
+<h2>Unsubscribing</h2>
+<button class="unsub">unsubscribe from db/auth changes</button>
+
+<script src="bundle.js"></script>
+</body>
+</html>

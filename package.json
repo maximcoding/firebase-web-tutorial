@@ -1,0 +1,19 @@
+{
+  "name": "firebase-9-tutorial",
+  "version": "1.0.0",
+  "description": "Firebase tutorial",
+  "author": "Maxim Livsthiz",
+  "main": "index.js",
+  "keywords": [],
+  "scripts": {
+    "test": "",
+    "build": "webpack"
+  },
+  "devDependencies": {
+    "webpack": "^5.88.2",
+    "webpack-cli": "^5.1.4"
+  },
+  "dependencies": {
+    "firebase": "^10.3.0"
+  }
+}
