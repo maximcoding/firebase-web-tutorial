@@ -23,12 +23,12 @@ const firebaseConfig = {
 
 ---
 #####  Firebase Console
-//  https://console.firebase.google.com/u/0/project/fir-9-app-c602d/firestore/data/~2Fusers~2F1R9TQygMUWvS8MGuDJx1
+https://console.firebase.google.com/u/0/project/fir-9-app-c602d/firestore/data/~2Fusers~2F1R9TQygMUWvS8MGuDJx1
 
 ---- 
 
 ##### Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
+https://firebase.google.com/docs/web/setup#available-libraries
 
 
 ##### src/indexjs
