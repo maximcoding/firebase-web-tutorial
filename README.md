@@ -22,11 +22,15 @@ const firebaseConfig = {
 ```
 
 ---
-##### // Link to console
+#####  Link to console
 ``` https://console.firebase.google.com/u/0/project/fir-9-app-c602d/firestore/data/~2Fusers~2F1R9TQygMUWvS8MGuDJx1 ```
 
 ---- 
-##### // src/indexjs
+##### src/indexjs
+
+
+#### Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
 
 ```
 // Import the functions you need from the SDKs you need
@@ -47,8 +51,6 @@ import {
   createUserWithEmailAndPassword,
   onAuthStateChanged
 } from 'firebase/auth';
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
 ```
 
 ```
