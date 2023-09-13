@@ -1,9 +1,8 @@
 
-##This project provides examples of the next Firebase features:
- * // The Firebase Realtime Database is a cloud-hosted NoSQL .
-  
-- Firestore CRUD Collection + real-time updates
-- Firebase Auth signup
+## This project provides examples of the next Firebase features:
+> * The Firebase Realtime Database is a cloud-hosted NoSQL.
+> * Firestore CRUD Collection + real-time updates
+> * Firebase Auth signup
 
 ----
 
